@@ -82,10 +82,10 @@ class GlassCard extends HTMLElement {
   }
 
   emailHandler() {
-    window.open(`mailto:${this.querySelector("div").innerText}`);
+    window.open(`mailto:${this.querySelectorAll("div")[0].innerText}`);
   }
   callHandler() {
-    window.open(`tel:${this.querySelector("div").innerText}`);
+    window.open(`tel:${this.querySelectorAll("div")[1].innerText}`);
   }
 
   connectedCallback() {

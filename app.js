@@ -16,8 +16,29 @@ const fillOne = (user) => {
       user.picture.medium
     }">
         <div slot="email">${user.email}</div>
-        <div slot="phone">${user.phone.split("-").join("")}</div>
+        <div slot="phone">${normalizePhoneNumber(user.phone)}</div>
     </glass-card>`;
+};
+
+normalizePhoneNumber = (phone) => {
+  // can be 1234567... or (123) 456... or 123 456... or (123)-456...
+  let normalizedPhone = phone;
+
+  if (normalizedPhone.split("-").length > 1) {
+    normalizedPhone = normalizedPhone.split("-").join("");
+  }
+
+  if (normalizedPhone.split(" ").length > 1) {
+    normalizedPhone = normalizedPhone.split(" ").join("");
+  }
+
+  if (normalizedPhone.indexOf("(") !== -1) {
+    normalizedPhone =
+      normalizedPhone.substring(1, normalizedPhone.indexOf(")")) +
+      normalizedPhone.substring(normalizedPhone.indexOf(")") + 1);
+  }
+
+  return normalizedPhone;
 };
 
 getUsers(10);
