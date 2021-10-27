@@ -1,0 +1,23 @@
+body {
+    background: url("https://jooinn.com/images/abstract-background-1.jpg");
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    min-height: 100vw;
+    display: grid;
+    place-items: center;
+    font-family: sans-serif;
+}
+
+#cards {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(2,minmax(200px, 1fr));
+    column-gap: 30px;
+}
+@media screen and (max-width: 1200px) {
+    #cards {
+        grid-template-columns: minmax(200px, 1fr);
+    }
+}
