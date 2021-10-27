@@ -13,7 +13,7 @@ const fillOne = (user) => {
   cardsElement.innerHTML =
     cardsElement.innerHTML +
     `<glass-card name="${user.name.first} ${user.name.last}" image="${
-      user.picture.medium
+      user.picture.large
     }">
         <div slot="email">${user.email}</div>
         <div slot="phone">${normalizePhoneNumber(user.phone)}</div>
