@@ -1,6 +1,5 @@
 const getUsers = async (number) => {
   const response = await fetch(`https://randomuser.me/api/?results=${number}`);
-  console.log("fetching");
   try {
     const data = await response.json();
     data.results.forEach((user) => fillOne(user));

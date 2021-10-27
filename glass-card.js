@@ -98,8 +98,12 @@ class GlassCard extends HTMLElement {
   }
 
   disconnectedCallback() {
-    this.shadowRoot.querySelector("#emailBtn").removeEventListener();
-    this.shadowRoot.querySelector("#callBtn").removeEventListener();
+    this.shadowRoot
+      .querySelector("#emailBtn")
+      .removeEventListener("click", () => this.emailHandler());
+    this.shadowRoot
+      .querySelector("#callBtn")
+      .removeEventListener("click", () => this.callHandler());
   }
 }
 
